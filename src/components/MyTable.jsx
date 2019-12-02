@@ -9,6 +9,9 @@ import Paper from '@material-ui/core/Paper';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -19,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-export function MyTable({rows,handleDelete,handleEdit}) {
+export function MyTable({rows,handleDelete,handleEdit,handleSort,columnToSort,sortDirection}) {
   const classes = useStyles();
   console.log(handleDelete)
   return (
@@ -27,11 +30,57 @@ export function MyTable({rows,handleDelete,handleEdit}) {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Customer number</TableCell>
-            <TableCell align="right">Username</TableCell>
-            <TableCell align="right">First name</TableCell>
-            <TableCell align="right">Last name</TableCell>
-            <TableCell align="right">Email</TableCell>
+            <TableCell onClick={()=>handleSort('customernumber')}>Customer number
+            {columnToSort === 'customernumber' ? (
+                sortDirection === "asc" ? (
+                  <ArrowUpwardIcon />
+                ) : (
+                  <ArrowDownwardIcon />
+                )
+              ) : null
+            }
+
+            </TableCell>
+            <TableCell onClick={()=>handleSort('username')} align="right">Username
+            {columnToSort === 'username' ? (
+                sortDirection === "asc" ? (
+                  <ArrowUpwardIcon />
+                ) : (
+                  <ArrowDownwardIcon />
+                )
+              ) : null
+            }
+            </TableCell>
+            <TableCell onClick={()=>handleSort('firstname')} align="right">First name
+            {columnToSort === 'firstname' ? (
+                sortDirection === "asc" ? (
+                  <ArrowUpwardIcon />
+                ) : (
+                  <ArrowDownwardIcon />
+                )
+              ) : null
+            }
+            </TableCell>
+            <TableCell onClick={()=>handleSort('lastname')} align="right">Last name
+            {columnToSort === 'lastname' ? (
+                sortDirection === "asc" ? (
+                  <ArrowUpwardIcon />
+                ) : (
+                  <ArrowDownwardIcon />
+                )
+              ) : null
+            }
+            </TableCell>
+            <TableCell onClick={()=>handleSort('email')} align="right">Email
+            {columnToSort === 'email' ? (
+                sortDirection === "asc" ? (
+                  <ArrowUpwardIcon />
+                ) : (
+                  <ArrowDownwardIcon />
+                )
+              ) : null
+            }
+            </TableCell>
             <TableCell align="right">Edit/Delete</TableCell>
           </TableRow>
         </TableHead>

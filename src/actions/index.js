@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { LIST_USER, ADD_USER, UPDATE_USER, DELETE_USER,GET_USER, SEARCH_USER } from './types';
+import { LIST_USER, ADD_USER, UPDATE_USER, DELETE_USER,GET_USER, SEARCH_USER ,SORT_USERS} from './types';
+import orderBy from "lodash/orderBy";
 
 export const fetchUsers = () => async dispatch => {
   const res = await axios.get('/api/users');
@@ -13,7 +14,12 @@ export const addUser = (user,history) => async dispatch => {
   dispatch({ type: ADD_USER, payload: res.data });
 };
 
+export const sortUsers = (users,columnToSort,sortDirection)=> async dispatch => {
+  console.log(users);
+  const sortedUsers =  orderBy(Array.from(users),columnToSort,sortDirection);
+  dispatch({ type: SORT_USERS, payload: sortedUsers });
 
+}
 export const updateUser = (id,user) => async dispatch => {
   const res = await axios.put(`/api/users/${id}`,user);
   dispatch({ type: UPDATE_USER, payload: res.data });
