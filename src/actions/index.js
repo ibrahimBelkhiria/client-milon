@@ -10,18 +10,18 @@ export const fetchUsers = () => async dispatch => {
 
 export const addUser = (user,history) => async dispatch => {
   const res = await axios.post('/api/users',user);
-  history.push('/')
+  history.push('/'); 
   dispatch({ type: ADD_USER, payload: res.data });
 };
 
 export const sortUsers = (users,columnToSort,sortDirection)=> async dispatch => {
-  console.log(users);
   const sortedUsers =  orderBy(Array.from(users),columnToSort,sortDirection);
   dispatch({ type: SORT_USERS, payload: sortedUsers });
 
 }
-export const updateUser = (id,user) => async dispatch => {
+export const updateUser = (id,user,history) => async dispatch => {
   const res = await axios.put(`/api/users/${id}`,user);
+  history.push('/')
   dispatch({ type: UPDATE_USER, payload: res.data });
 };
 

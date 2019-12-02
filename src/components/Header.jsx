@@ -24,10 +24,11 @@ export const  Header = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-          <Link to='/' color="white"> Milon</Link>
+          <Link to='/' style={{color:"white"}}> Milon</Link>
           </Typography>
-          <Link to='/add' color="white"> Add User</Link>
-          <Link to='/' color="white"> List Users</Link>
+          <Link to='/add'  style={{color:"white"}}> Add User</Link>
+          <span> &nbsp;&nbsp;   </span>
+          <Link to='/'  style={{color:"white"}}> List Users</Link>
         </Toolbar>
       </AppBar>
     </div>

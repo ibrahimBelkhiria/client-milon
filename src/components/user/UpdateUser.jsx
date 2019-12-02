@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {UpdateUserForm} from '../UpdateUserForm';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
+import { store } from 'react-notifications-component';
+import 'animate.css';
 
 class UpdateUser extends Component {
 
@@ -14,12 +16,23 @@ class UpdateUser extends Component {
     handleChange = input => e => {
         e.preventDefault();
         this.user[input] = e.target.value;
-        console.log(this.user);
     };
 
     updateUser = ()=>{
-        console.log('update user');
-        this.props.updateUser(this.props.match.params.id,this.user);
+        this.props.updateUser(this.props.match.params.id,this.user,this.props.history);
+        store.addNotification({
+            title: "User updated!",
+            message: "User updated successfully",
+            type: "success",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
     }
     render() {
         const {customernumber,username,firstname,lastname,email,password,repeatPassword,dateOfBirth} = this.props.user;

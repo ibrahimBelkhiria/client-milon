@@ -4,6 +4,8 @@ import * as actions from '../actions';
 import { MyTable } from './MyTable';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { store } from 'react-notifications-component';
+import 'animate.css';
 
 const invertDirection = {
     asc: "desc",
@@ -27,6 +29,19 @@ class Home extends Component {
     handleDelete = (id)=> {
         console.log('deleteing user '+id);
         this.props.deleteUser(id);
+        store.addNotification({
+            title: "User deleted!",
+            message: "User deleted successfully",
+            type: "success",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
     }
     handleEdit = (id) =>{
         this.props.history.push(`update/${id}`);

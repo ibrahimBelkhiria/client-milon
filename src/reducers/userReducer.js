@@ -6,7 +6,7 @@ export const userReducer = (state=[],action)=>{
         case LIST_USER:
             return action.payload;             
         case ADD_USER:
-           return state.concat([action.payload]);
+           return {state : state.concat([action.payload]),errors:action.payload.errors};
         case UPDATE_USER:
             return action.payload;   
         case GET_USER:

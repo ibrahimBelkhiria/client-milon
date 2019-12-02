@@ -16,6 +16,7 @@ export class UpdateUserForm extends Component {
               }}
               defaultValue= {values.customernumber}
               onChange={handleChange('customernumber')} 
+              required={true}
             />
             <br />
             <TextField
@@ -28,6 +29,7 @@ export class UpdateUserForm extends Component {
               disabled={true}
               defaultValue= {values.username}
               onChange={handleChange('username')}  
+              
             />
             <br />
             <TextField
@@ -39,6 +41,7 @@ export class UpdateUserForm extends Component {
               }}
               defaultValue= {values.firstname}
               onChange={handleChange('firstname')}
+              required={true}
             />
             <br />
             <TextField
@@ -49,6 +52,7 @@ export class UpdateUserForm extends Component {
                  shrink: true,
               }}
               onChange={handleChange('lastname')}
+              required={true}
             />
             <br />
             <TextField
@@ -59,6 +63,7 @@ export class UpdateUserForm extends Component {
                  shrink: true,
               }}
               onChange={handleChange('email')}
+              required={true}
             />
             <br />
             <TextField

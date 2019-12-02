@@ -96,7 +96,7 @@ export function MyTable({rows,handleDelete,handleEdit,handleSort,columnToSort,so
               <TableCell align="right">{row.email}</TableCell>
               <TableCell align="right"> 
                 <IconButton onClick={()=>{
-                  const r = window.confirm("Do you really want to Delete the user witth id "+row.id); 
+                  const r = window.confirm("Sure to Delete the user witth id "+row.id); 
                   if(r === true){
                     handleDelete(row.id)
                      }                     

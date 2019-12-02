@@ -5,12 +5,15 @@ import AddUser from './user/AddUser';
 import UpdateUser from './user/UpdateUser';
 import NotFoundPage from './NotFoundPage';
 import {Header} from './Header';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
 export default class App extends Component {
 
   render() {
     return (
      <BrowserRouter>
+     <ReactNotification />
      <Header></Header>
      <Switch>
      <Route  path='/' exact component={Home} ></Route>

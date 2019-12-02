@@ -12,13 +12,15 @@ export class UserForm extends Component {
               label="Customer number"
               margin="normal"
               onChange={handleChange('customernumber')} 
+              required={true}
             />
             <br />
             <TextField
               placeholder="Enter Username"
               label="Username"
               margin="normal"
-              onChange={handleChange('username')}  
+              onChange={handleChange('username')}
+              required={true}
             />
             <br />
             <TextField
@@ -26,6 +28,7 @@ export class UserForm extends Component {
               label="First name"
               margin="normal"
               onChange={handleChange('firstname')}
+              required={true}
             />
             <br />
             <TextField
@@ -33,6 +36,7 @@ export class UserForm extends Component {
               label="Last name"
               margin="normal"
               onChange={handleChange('lastname')}
+              required={true}
             />
             <br />
             <TextField
@@ -40,6 +44,7 @@ export class UserForm extends Component {
               label="Email"
               margin="normal"
               onChange={handleChange('email')}
+              required={true}
             />
             <br />
             <TextField
@@ -50,6 +55,7 @@ export class UserForm extends Component {
                  shrink: true,
               }}
               onChange={handleChange('dateOfBirth')}
+              required={true}
             />
             <br />
             <TextField
@@ -57,6 +63,7 @@ export class UserForm extends Component {
               label="Password"
               margin="normal"
               onChange={handleChange('password')}
+              required={true}
             />
             <br />
             <TextField
@@ -64,6 +71,7 @@ export class UserForm extends Component {
               label="Repeat Password"
               margin="normal"
               onChange={handleChange('repeatPassword')}
+              required={true}
             />
             <br />
             <Button

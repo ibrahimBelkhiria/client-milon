@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {UserForm} from '../UserForm';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
+import { store } from 'react-notifications-component';
+import 'animate.css';
 
 class AddUser extends Component {
 
@@ -15,17 +17,29 @@ class AddUser extends Component {
         password: '',
         repeatPassword: ''
     }
-
+    
     handleChange = input => e => {
         e.preventDefault();
         this.user[input] = e.target.value;
-        console.log(this.user);
     };
 
-    addUser = ()=>{
-        console.log('add user')
+    addUser = ()=> {
         this.props.addUser(this.user,this.props.history);
+        store.addNotification({
+            title: "User created!",
+            message: "User created successfully",
+            type: "success",
+            insert: "top",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
     }
+
     render() {
         return (
             <div className="container" style={{textAlign:'center'}}>
@@ -38,7 +52,8 @@ class AddUser extends Component {
 
 function mapStateToProps(state) {
     return {
-        users : state 
+        users : state,
+        errors : state.errors 
     }
 }
 
